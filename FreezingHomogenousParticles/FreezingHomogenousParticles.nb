@@ -1,0 +1,169 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.4' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5563,        161]
+NotebookOptionsPosition[      5096,        141]
+NotebookOutlinePosition[      5442,        156]
+CellTagsIndexPosition[      5399,        153]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"fn", "=", "300"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Import", "[", 
+      RowBox[{
+       RowBox[{"NotebookDirectory", "[", "]"}], "<>", "\"\<data\\\\\>\"", "<>", 
+       RowBox[{"ToString", "[", "i", "]"}], "<>", "\"\<positions.csv\>\""}], 
+      "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", "fn"}], "}"}]}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.6740416429716883`*^9, 3.674041655388131*^9}, 
+   3.6740419022980824`*^9, {3.6740428054458027`*^9, 3.674042892752329*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Monitor", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"imgs", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"Show", "[", 
+        RowBox[{
+         RowBox[{"ListPlot", "[", 
+          RowBox[{
+           RowBox[{"data", "[", 
+            RowBox[{"[", "k", "]"}], "]"}], ",", 
+           RowBox[{"PlotTheme", "\[Rule]", "\"\<Scientific\>\""}], ",", 
+           RowBox[{"ImageSize", "\[Rule]", "Large"}], ",", 
+           RowBox[{"PlotStyle", "\[Rule]", "Black"}], ",", 
+           RowBox[{"AspectRatio", "\[Rule]", "1"}], ",", 
+           RowBox[{"PlotRange", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"0", ",", "30"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"0", ",", "30"}], "}"}]}], "}"}]}]}], "]"}], ",", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Graphics", "[", 
+            RowBox[{"Flatten", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Opacity", "[", 
+                RowBox[{"0.5", ",", "Black"}], "]"}], ",", "#"}], "}"}], 
+             "]"}], "]"}], "&"}], "/@", 
+          RowBox[{"Flatten", "[", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{
+               RowBox[{"Line", "[", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"data", "[", 
+                   RowBox[{"[", 
+                    RowBox[{"k", ",", "i"}], "]"}], "]"}], ",", "#"}], "}"}], 
+                "]"}], "&"}], "/@", 
+              RowBox[{"Select", "[", 
+               RowBox[{
+                RowBox[{"data", "[", 
+                 RowBox[{"[", "k", "]"}], "]"}], ",", 
+                RowBox[{
+                 RowBox[{"1", "<", 
+                  RowBox[{"Norm", "[", 
+                   RowBox[{"#", "-", 
+                    RowBox[{"data", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"k", ",", "i"}], "]"}], "]"}]}], "]"}], "<", 
+                  "1.3"}], "&"}]}], "]"}]}], ",", 
+             RowBox[{"{", 
+              RowBox[{"i", ",", "1", ",", 
+               RowBox[{"Length", "[", 
+                RowBox[{"data", "[", 
+                 RowBox[{"[", "k", "]"}], "]"}], "]"}]}], "}"}]}], "]"}], 
+           "]"}]}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"k", ",", "1", ",", 
+         RowBox[{"fn", "-", "175"}]}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", ",", "k"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6740429122445583`*^9, 3.6740429156479497`*^9}, {
+   3.6740429549682546`*^9, 3.674042964554905*^9}, {3.6740430019077735`*^9, 
+   3.6740430397095346`*^9}, {3.674043078274353*^9, 3.674043305358304*^9}, 
+   3.6740439063690395`*^9, {3.6740469622969575`*^9, 3.6740469630810785`*^9}, 
+   3.6740476456688666`*^9, {3.674048188895671*^9, 3.6740481890115724`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Export", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"NotebookDirectory", "[", "]"}], "<>", 
+    "\"\<FreezingHomogenousParticles.gif\>\""}], ",", "imgs"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.6740433773166018`*^9, 3.6740434000617795`*^9}}],
+
+Cell[BoxData["\<\"C:\\\\Users\\\\Julien\\\\Desktop\\\\Science \
+Animations\\\\FreezingHomogenousParticles\\\\FreezingHomogenousParticles.gif\"\
+\>"], "Output",
+ CellChangeTimes->{3.6740438653100233`*^9, 3.674044908982152*^9, 
+  3.6740476020098934`*^9, 3.6740481197732944`*^9, 3.674048575563237*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"EmitSound", "[", 
+  RowBox[{"Play", "[", 
+   RowBox[{
+    RowBox[{"Sin", "[", 
+     RowBox[{"8000", "*", "t"}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"t", ",", "0", ",", "2"}], "}"}]}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6740469705793285`*^9, 3.6740469879770737`*^9}}],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.674046671356727*^9}]
+},
+WindowSize->{1350, 695},
+WindowMargins->{{-8, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.4 for Microsoft Windows (64-bit) (February 25, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 621, 15, 52, "Input"],
+Cell[1182, 37, 2903, 71, 112, "Input"],
+Cell[CellGroupData[{
+Cell[4110, 112, 267, 7, 31, "Input"],
+Cell[4380, 121, 298, 4, 31, "Output"]
+}, Open  ]],
+Cell[4693, 128, 309, 8, 31, "Input"],
+Cell[5005, 138, 87, 1, 52, "Input"]
+}
+]
+*)
+
